@@ -1,129 +1,111 @@
 # 💎 Diamond Price Predictor
 
-A Machine Learning project that predicts diamond prices using physical and quality-related attributes such as carat, cut, color, clarity, depth, table, and dimensions. The project benchmarks multiple machine learning models and provides an interactive Streamlit dashboard for real-time price prediction.
-<img width="1919" height="940" alt="image" src="https://github.com/user-attachments/assets/e97b5eeb-f92e-47a5-b237-f849c688caa8" />
-<img width="1917" height="948" alt="image" src="https://github.com/user-attachments/assets/c7063f25-6cf4-420f-a008-cfca9b07db51" />
-<img width="1919" height="957" alt="image" src="https://github.com/user-attachments/assets/50e84a7f-db2f-4271-a377-c0d4c2dce118" />
+![Python](https://img.shields.io/badge/Python-3.11-blue?style=flat-square&logo=python)
+![Scikit-Learn](https://img.shields.io/badge/Scikit--Learn-1.5-F7931E?style=flat-square&logo=scikit-learn)
+![XGBoost](https://img.shields.io/badge/XGBoost-2.0-red?style=flat-square)
+![Streamlit](https://img.shields.io/badge/Streamlit-1.36-FF4B4B?style=flat-square&logo=streamlit)
+![Dataset](https://img.shields.io/badge/Dataset-53%2C940%20records-green?style=flat-square)
+![Status](https://img.shields.io/badge/Status-Complete-brightgreen?style=flat-square)
 
-
-
----
-
-## 📌 Overview
-
-Diamond pricing depends on several factors including size, cut quality, color, clarity, and physical dimensions. This project explores how different machine learning algorithms perform on this regression problem and identifies the best-performing model for price prediction.
-
-In addition to model benchmarking, a Streamlit dashboard was developed to allow users to estimate diamond prices through an intuitive interface.
+An end-to-end machine learning project that benchmarks **15 regression and classification models** for diamond price prediction, achieving **R² = 0.9811** with XGBoost and **95.98% classification accuracy** with Random Forest. Includes a live Streamlit dashboard for real-time price estimation.
 
 ---
 
-## 🚀 Features
+## 🚀 Live Demo
 
-* Data preprocessing and cleaning
-* Missing value handling
-* Outlier detection and removal
-* Feature encoding and scaling
-* Multiple machine learning models
-* Model performance comparison
-* Interactive Streamlit dashboard
-* Real-time diamond price prediction
+> Try the Streamlit app locally — enter diamond attributes and get an instant price prediction.
+
+![Dashboard Preview](https://github.com/user-attachments/assets/e97b5eeb-f92e-47a5-b237-f849c688caa8)
+
+---
+
+## 📈 Results
+
+### Regression (Best Models)
+
+| Model | R² Score | RMSE | MAE |
+|-------|----------|------|-----|
+| **XGBoost** | **0.9811** | **0.1359** | **0.0753** |
+| Random Forest | 0.9802 | 0.1392 | 0.0747 |
+| KNN Regressor | 0.9644 | 0.1867 | 0.1082 |
+| Decision Tree | 0.9642 | 0.1872 | 0.0991 |
+| Linear Regression | 0.8915 | 0.3258 | 0.2208 |
+
+### Classification (Price Ranges)
+
+| Model | Accuracy |
+|-------|----------|
+| **Random Forest** | **95.98%** |
+| XGBoost Classifier | ~95% |
+| MLP Classifier | ~93% |
+
+---
+
+## 🧠 How It Works
+
+```
+Raw Data (53,940 records)
+        │
+        ▼
+Preprocessing & Cleaning
+(missing values, outliers, encoding, scaling)
+        │
+        ▼
+Feature Engineering
+(carat, cut, color, clarity, depth, table, x, y, z)
+        │
+   ┌────┴────┐
+   ▼         ▼
+Regression   Classification
+(predict     (predict price
+price $)     range bucket)
+   │         │
+   └────┬────┘
+        ▼
+Model Benchmarking (15 models)
+        │
+        ▼
+Best Model → Streamlit Dashboard
+```
+
+---
+
+## 🤖 Models Benchmarked
+
+**Regression (7 models)**
+Linear Regression · KNN Regressor · Decision Tree · Random Forest · SVR · XGBoost · MLP Regressor
+
+**Classification (8 models)**
+Logistic Regression · KNN · Naive Bayes · Decision Tree · Random Forest · SVM · XGBoost · MLP Classifier
 
 ---
 
 ## 📊 Dataset
 
-The project uses the Diamonds Dataset containing information such as:
+[Diamonds Dataset — Kaggle](https://www.kaggle.com/datasets/shivam2503/diamonds)
 
-* Carat
-* Cut
-* Color
-* Clarity
-* Depth
-* Table
-* X Dimension
-* Y Dimension
-* Z Dimension
-* Price
-
-Dataset Size:
-
-* 53,940 diamond records
+| Property | Value |
+|----------|-------|
+| Records | 53,940 |
+| Features | 9 (carat, cut, color, clarity, depth, table, x, y, z) |
+| Target | Price (USD) |
+| Size | ~3.4 MB |
 
 ---
 
-## 🤖 Machine Learning Models
+## 🖥️ Dashboard
 
-### Regression Models
-
-* Linear Regression
-* KNN Regressor
-* Decision Tree Regressor
-* Random Forest Regressor
-* Support Vector Regressor (SVR)
-* XGBoost Regressor
-* Multi-Layer Perceptron (MLP) Regressor
-
-### Classification Models
-
-To benchmark performance using categorized price ranges:
-
-* Logistic Regression
-* KNN Classifier
-* Naive Bayes
-* Decision Tree Classifier
-* Random Forest Classifier
-* SVM Classifier
-* XGBoost Classifier
-* Multi-Layer Perceptron (MLP) Classifier
+![Prediction Example](https://github.com/user-attachments/assets/c7063f25-6cf4-420f-a008-cfca9b07db51)
+![Model Comparison](https://github.com/user-attachments/assets/50e84a7f-db2f-4271-a377-c0d4c2dce118)
 
 ---
 
-## 📈 Model Evaluation
+## 📁 Project Structure
 
-### Regression Metrics
-
-* R² Score
-* RMSE (Root Mean Squared Error)
-* MAE (Mean Absolute Error)
-* MSE (Mean Squared Error)
-
-### Classification Metrics
-
-* Accuracy
-* Precision
-* Recall
-* F1 Score
-
----
-
-## 🖥️ Dashboard Preview
-
-### Home Screen
-
-Add screenshot here:
-
-```text
-screenshots/dashboard_home.png
 ```
-
-### Prediction Example
-
-Add screenshot here:
-
-```text
-screenshots/prediction_result.png
-```
-
----
-
-## 📂 Project Structure
-
-```text
 Diamond-Price-Predictor/
-
 ├── data/
 │   └── diamonds.csv
-│
 ├── models/
 │   ├── linear_regression.py
 │   ├── decision_tree.py
@@ -134,93 +116,61 @@ Diamond-Price-Predictor/
 │   ├── neural_network.py
 │   ├── logistic_regression.py
 │   └── naive_bayes.py
-│
 ├── app/
 │   └── streamlit_app.py
-│
 ├── preprocess.py
 ├── price_predictor.py
 ├── model_comparison.py
 ├── main.py
-│
-├── screenshots/
-│   ├── dashboard_home.png
-│   └── prediction_result.png
-│
 ├── requirements.txt
 └── README.md
 ```
 
 ---
 
-## 🛠️ Tech Stack
-
-* Python
-* Pandas
-* NumPy
-* Scikit-Learn
-* XGBoost
-* Streamlit
-* Matplotlib
-
----
-
-## ▶️ How to Run
-
-### Install Dependencies
+## ⚙️ Getting Started
 
 ```bash
+# 1. Clone the repo
+git clone https://github.com/YASH-GUPTA995/Diamond-Price-Prediction-And-Model-Benchmarking.git
+cd Diamond-Price-Prediction-And-Model-Benchmarking
+
+# 2. Install dependencies
 pip install -r requirements.txt
-```
 
-### Run Model Benchmarking
-
-```bash
+# 3. Run model benchmarking
 python main.py
-```
 
-### Launch Streamlit Dashboard
-
-```bash
+# 4. Launch the Streamlit dashboard
 streamlit run app/streamlit_app.py
 ```
 
 ---
 
-## 🎯 Key Learnings
+## 🛠️ Tech Stack
 
-Through this project I gained hands-on experience with:
-
-* Data preprocessing techniques
-* Feature engineering
-* Regression and classification algorithms
-* Model evaluation and comparison
-* Neural Networks using Scikit-Learn
-* Building interactive ML applications with Streamlit
+| Library | Purpose |
+|---------|---------|
+| `Scikit-Learn` | 13 of the 15 ML models, preprocessing |
+| `XGBoost` | Best-performing regression + classification |
+| `Pandas / NumPy` | Data manipulation and feature engineering |
+| `Streamlit` | Interactive prediction dashboard |
+| `Matplotlib` | Model comparison visualizations |
 
 ---
 
 ## 🔮 Future Improvements
 
-* Model persistence using Joblib/Pickle
-* Hyperparameter tuning
-* Cloud deployment
-* Docker support
-* Automated retraining pipeline
-* Enhanced dashboard visualizations
+- [ ] Hyperparameter tuning with GridSearchCV
+- [ ] Model persistence with Joblib
+- [ ] Cloud deployment (Streamlit Cloud / Hugging Face Spaces)
+- [ ] SHAP values for feature importance explainability
+- [ ] Docker support
 
 ---
 
 ## 👨‍💻 Author
 
-**Yash Gupta**
+**Yash Gupta** · B.Tech Electrical Engineering · NIT Delhi
 
-B.Tech Electrical Engineering
-National Institute of Technology Delhi
-
-Areas of Interest:
-
-* Machine Learning
-* Artificial Intelligence
-* Software Development
-* Data Structures & Algorithms
+[GitHub](https://github.com/YASH-GUPTA995) · [LinkedIn](https://www.linkedin.com/in/yash-gupta-nit-delhi/)
